@@ -168,8 +168,6 @@ frontapp.tools.wrap_images_for_menu = function (img) {
 };
 
 frontapp.tools.has_image_loaded = function (img) {
-    // http://stackoverflow.com/a/1977898/2929465
-
     if (!img.complete) {
         return false;
     }
@@ -277,18 +275,7 @@ frontapp.tools.delete_image = function (path, callback) {
 
 // Pass the original image path to this function.
 frontapp.tools.remove_original_and_frontalized_images = function (path, data) {
-    var front_img_src, i;
-
-    // Remove the original image
-    $('img[src="' + path + '"').remove();
-    front_img_src = path.replace('uploads', 'front_results');
-
-    // Remove the matching frontalized image from the DOM.
-    $('.uploaded_image_front').each(function (idx, elm) {
-        if ($(elm).attr('src').match(front_img_src)) {
-            $(elm).remove();
-        }
-    });
+    $('img[src="' + path + '"').parents('div.ui-grid-a').remove();
 };
 
 frontapp.tools.attach_image_menu_events = function () {

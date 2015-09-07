@@ -1,10 +1,3 @@
-/**
- * Boilerplate used:
- * ----------------
- * Node.js Login Boilerplate
- * More Info : http://bit.ly/LsODY8
- * Copyright (c) 2013-2015 Stephen Braitsch
- **/
 
 var http = require('http');
 var express = require('express');
@@ -41,7 +34,7 @@ GLOBAL.cfg = {
 
 switch (machine_name) {
     case DEV_1:
-        GLOBAL.cfg.base_folder = '/bigData/code/node_app/frontalization_API';
+        GLOBAL.cfg.base_folder = '/bigData/code/frontapp/frontalization_API';
         GLOBAL.cfg.opencv_folder = '/bigData/mylibs/opencv-3.0.0-rc1';
         break;
 
@@ -51,7 +44,7 @@ switch (machine_name) {
         break;
 
     case PROD:
-        GLOBAL.cfg.base_folder = '/data/code/node_app/frontalization_API';
+        GLOBAL.cfg.base_folder = '/data/code/frontapp/frontalization_API';
         GLOBAL.cfg.opencv_folder = '/data/libs/opencv-3.0.0-rc1';
         break;
 
@@ -105,3 +98,11 @@ http.createServer(app).listen(app.get('port'), function () {
     func.log('Express server listening on port ' + app.get('port') +
             ' on machine ' + machine_name);
 });
+
+/**
+ * Boilerplate used:
+ * ----------------
+ * Node.js Login Boilerplate
+ * More Info : https://github.com/braitsch/node-login
+ * Copyright (c) 2013-2015 Stephen Braitsch
+ **/
