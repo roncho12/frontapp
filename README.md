@@ -1,4 +1,4 @@
-#### FrontApp - <i>Face frontalization made easy !</i>
+### FrontApp - <i>Face frontalization made easy !</i>
 
 <b>[FrontApp][frontapp]</b> is a [Node.js][nodejs] web app which uses a face frontalization algorithm to produce frontalized images of faces.
 
@@ -9,7 +9,7 @@ The code has been tested on a machine running Ubuntu 14.04.
 
 <hr/>
 
-#### Table of Contents:
+### Contents:
 * [Full installation - web application and frontalization API](#app_installation)
 * [Frontalization API installation](#front_standalone) 
 * [Credits](#credits)
@@ -18,7 +18,7 @@ The code has been tested on a machine running Ubuntu 14.04.
 
 <hr/>
 
-#### <a name="app_installation"></a>Full installation:
+### <a name="app_installation"></a>Full installation:
 This section will explain how to install the web application (on a machine running Linux). Once it's up and running, you will need to [compile the frontalization API](#front_standalone) for it to be available to the web application.
 
 <b>Requirements - </b>
@@ -45,7 +45,7 @@ Once the application is functioning you should compile the [frontzlization API](
 
 <hr/>
 
-#### <a name="front_standalone"></a>Frontalization API:
+### <a name="front_standalone"></a>Frontalization API:
 
 <b>Requirements - </b>
 
@@ -118,7 +118,7 @@ optional arguments:
 
 <hr/>
 
-#### <a name="credits"></a>Credits:
+### <a name="credits"></a>Credits:
 
 * The [original face frontalization algorithm][tal fronalization algo] was developed by [Dr. Tal Hassner][tal homepage]:
 >Tal Hassner, Shai Harel\*, Eran Paz\* and Roee Enbar, "Effective Face Frontalization in Unconstrained Images", IEEE Conf. on Computer Vision and Pattern Recognition (CVPR), Boston, June 2015.  
