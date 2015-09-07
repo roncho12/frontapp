@@ -12,7 +12,6 @@ The code has been tested on a machine running Ubuntu 14.04.
 #### Table of Contents:
 * [Full installation - web application and frontalization API](#app_installation)
 * [Frontalization API installation](#front_standalone) 
-* [Troubleshooting](#troubleshooting)
 * [Credits](#credits)
 
 
@@ -41,8 +40,6 @@ After that you can run:
 node app.js
 ```
 To start the application.
-
-If you get stuck, see the [troubleshooting](#troubleshooting) section for help.
 
 Once the application is functioning you should compile the [frontzlization API](#front_standalone).
 
@@ -116,24 +113,7 @@ optional arguments:
                         the face centered in the image.
                         NOTE: images which are not 250x250 may cause the
                         frontalization code to crash.
-
-NOTES:
-1) Some parameters are not modifiable when using the command line.
-   You can change those if you run this code by calling it from another script.
-2) Images which are not 250x250 may cause the frontalization code to crash.
-3) To view the results without saving them to disk, pass "-debug" and
-   do NOT pass "-write".
-
 ```
-
-
-<hr/>
-
-#### <a name="troubleshooting"></a>Troubleshooting:
-* <b>MongoDB</b>: if this is your first time installing MongoDB, googling the error messages will help you a great deal. 
-* 
-* 
-
 
 
 <hr/>
@@ -146,10 +126,6 @@ NOTES:
 >\* These author names are in alphabetical order due to equal contribution.
 
 * The C++ code used to implement the above algorithm is a modification of the code used in the [uniform-lbp][original cpp project] project ([frontalize.cpp][original cpp code]). 
-
-
-* Developers: roncho12@gmail.com, llior.meir@gmail.com.
-
 
 
 [tal homepage]: http://www.openu.ac.il/home/hassner/index.html
