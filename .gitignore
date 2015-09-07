@@ -1,0 +1,7 @@
+deploy_to_production.sh
+deploy_to_production_from_ron_home.sh
+nbproject/
+node_modules/
+clear_uploaded_files_collection.js
+app/public/front_results/*.jpg
+app/public/uploads/*.jpg

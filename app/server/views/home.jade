@@ -1,0 +1,189 @@
+doctype html
+
+html
+
+    head
+    meta(charset='UTF-8')
+    title FrontApp
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    // link(rel='stylesheet', href='css/jquery.mobile.structure-1.0.1.css')
+    link(rel='stylesheet', href='css/jquery.mobile-1.4.5.min.css')
+    // link(rel='stylesheet', href='css/custom.css')
+    link(rel='stylesheet', href='css/frontapp.css')
+
+    script(src='js/jquery-1.11.3.min.js')
+    script(src='/js/controllers/homeController.js')
+    script(src='js/jquery.mobile-1.4.5.min.js')
+    script(src='/js/views/home.js')
+    script(src='/js/config.js')
+    script(src='/js/tools.js')
+
+
+    body
+        /////////////////
+        //  HOME PAGE  //
+        /////////////////
+        div#home_page(data-role='page', data-theme='a')
+            - var username = udata.user
+            div(data-role="header" data-username=username)
+                h1= "Hi " + udata.user + " !"
+                a.btn-logout(data-icon="back", class="ui-btn-right", data-transition="flip") Sign Out
+
+            div#home_content(data-role="content")
+                h3 What would you like to do?
+
+                form#uploadForm(enctype='multipart/form-data', action='frontapp.tools.upload_files', method='post')
+                    input(type='file', name='user_image', style='display: none;')
+                    input(type='submit', value='Upload Image', name='submit' data-icon="arrow-u")
+
+                a#gallery_link(data-role="button", href="#gallery_page", data-transition="flip", data-icon="grid") View My Gallery
+                a#faq_link(data-role="button", href="#faq_page", data-transition="flip", data-icon="bullets") Frequently Asked Questions
+                a#about_us_link(data-role="button", href="#about_us_page", data-transition="flip", data-icon="info") About Us
+                a#single_image_link(href="#single_image_page", data-transition="flip")
+
+            include footer
+
+        ////////////////////
+        //  GALLERY PAGE  //
+        ////////////////////
+        div#gallery_page(data-role='page', data-theme='a')
+            div(data-role="header")
+                a(data-icon="arrow-l", data-rel="back", data-transition="flip") back
+                h1 Gallery
+                a.btn-logout(data-icon="back", class="ui-btn-right") Sign Out
+
+            div#gallery_content(data-role="content")
+
+            include modals/image_menu
+            include modals/image_details
+
+            include footer
+
+        /////////////////////////
+        //  SINGLE IMAGE PAGE  //
+        /////////////////////////
+        div#single_image_page(data-role='page', data-theme='a')
+            div(data-role="header")
+                a(data-icon="arrow-l", data-rel="back") back
+                h1 Image
+                a.btn-logout(data-icon="back", class="ui-btn-right") Sign Out
+
+            div#single_image_content(data-role="content")
+
+            include footer
+
+        //////////
+        //  FAQ //
+        //////////
+        div#faq_page(data-role='page', data-theme='a')
+            div(data-role="header")
+                a(data-icon="arrow-l", data-rel="back") back
+                h1 Frequently Asked Questions
+                a.btn-logout(data-icon="back", class="ui-btn-right") Sign Out
+
+            div#faq_content(data-role="content")
+                h3#faq_1 How to use Frontapp?
+                p
+                    | It's easy! all you have to do is upload an image that contains a face, and we'll frontalize it for you.
+                    | You can view the results in the "My Gallery" section.
+                hr
+
+                h3 Where can i get the code?
+                p
+                    | The whole project, back-end to front-end, is available on Github. Just click 
+                    a(href="www.github.com") this link
+                    |  to get there.
+                hr
+
+                h3 Why do some results look a bit weird/unnatual?
+                p
+                    | The algorithm we use is a version of the original algorithm. To get the code for the
+                    | original algorithm, which provides better results, please visit 
+                    a(href="http://www.openu.ac.il/home/hassner/projects/frontalize/") Dr. Tal Hassner's website
+                    | .
+                hr
+
+
+                h3 Why does it take more time on mobile?
+                p
+                    | Mobile network speed. Uploading an image taken from the camera might mean that a 2MB image
+                    | is being uploaded to the server. Sending back the frontalized image also takes a bit longer
+                    | when using the app via a mobile network.
+                hr
+
+                h3 Why was my image uploaded sideways (or upside down)?
+                p
+                    | This may occur when uploading an image that was taken by a mobile cell phone camera. Each image file contains
+                    | meta-data which is called 
+                    a(href="https://en.wikipedia.org/wiki/Exchangeable_image_file_format") EXIF
+                    | . In case this data isn't present, or appears in a non-standard form, the orientation of the image
+                    | cannot be automatically detected.
+                hr
+
+                h3#faq_2 In short, how does it work?
+                ul
+                    li The user uploads an image.
+                    li The image is scanned to find a face.
+                    li If a face was found, the image is cropped so that the face appears (roughly) in the center.
+                    li The face in the image is frontalized.
+                    li The user gets back a frontzlized image of the face that appeared in the original image.
+
+
+
+            include footer
+
+        /////////////////////
+        //  ABOUT US PAGE  //
+        /////////////////////
+        div#about_us_page(data-role='page', data-theme='a')
+            div(data-role="header")
+                a(data-icon="arrow-l", data-rel="back") back
+                h1 About Us
+                a.btn-logout(data-icon="back", class="ui-btn-right") Sign Out
+
+            div#about_us_content(data-role="content")
+                h3 Who are we?
+                p
+                    | We are two students from the Acedemic college of Tel-Aviv-Jaffa.
+                    | This application is a project that was developed under the supervision
+                    | of 
+                    a(href="http://www.openu.ac.il/home/hassner/") Dr. Tal Hassner
+                    |  .
+
+                hr
+
+                h3 How are the faces frontalized?
+                p
+                    | We modified the C++ frontalization code found in 
+                    a(href="https://github.com/berak/uniform-lbp/tree/master/util/frontalize") this project
+                    |  to fit our needs. The original frontalization algorithm and the paper which describes it
+                    | can be found at 
+                    a(href="http://www.openu.ac.il/home/hassner/projects/frontalize/") Dr. Tal Hassner's website
+                    | , and we highly recommend anyone interested in the subject to read the paper
+                    | or at least download the 
+                    a(href="http://www.openu.ac.il/home/hassner/projects/frontalize/") original Matlab code
+                    |  (which provides better results than our version) to enjoy the full capabilities
+                    | of the frontalization algorithm.
+                hr
+
+                h3 How can you contact us?
+                ul
+                    li
+                        | Ron: 
+                        a(href="mailto:roncho12@gmail.com", target="_top") roncho12@gmail.com
+                    li
+                        | Lior: 
+                        a(href="mailto:llior.meir@gmail.com", target="_top") llior.meir@gmail.com
+
+
+
+
+
+            include footer
+
+        /////////////
+        //  EXTRA  //
+        /////////////
+        include modals/popup
+

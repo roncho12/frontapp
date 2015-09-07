@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+    meta(charset='UTF-8')
+    title FrontApp
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    link(rel='stylesheet', href='css/jquery.mobile-1.4.5.min.css')
+    link(rel='stylesheet', href='/css/frontapp.css')
+
+    script(src='js/jquery-1.11.3.min.js')
+    script(src='js/jquery.mobile-1.4.5.min.js')
+    script(src='/vendor/jquery.form.js')
+    script(src='/js/views/signup.js')
+    script(src='/js/controllers/signupController.js')
+    script(src='/js/form-validators/accountValidator.js')
+
+    body#home
+        div(data-role='page', data-theme='a')
+            div(data-role="content")
+                include account
+
+            include footer

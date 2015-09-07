@@ -1,0 +1,3 @@
+Run the following command:
+
+g++ -fPIC -shared -I./dlib-18.15 `pkg-config opencv --cflags` frontalize_for_lib.cpp -o libfrontalize.so -lpthread -lX11 `pkg-config opencv --libs`

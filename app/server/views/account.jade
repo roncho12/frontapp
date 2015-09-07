@@ -1,0 +1,35 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+#account-form-container
+    form( method="post")#account-form
+        h1
+        h3#sub1 Please tell us a little about yourself.
+        hr
+        fieldset
+            #name-cg
+                label(for='name-tf') Name
+                    input#name-tf(type='text', name='name', value= user.name)
+            #email-cg
+                label(for='email-tf') Email
+                    input#email-tf(type='text', name='email', value= user.email)
+            #clist-cg
+                label(for='country-list') Location
+                    select#country-list(name='country')
+                        each item in countries
+                            option(selected=item.name == user.country)= item.name
+            hr
+            h3#sub2
+            #user-cg
+                label(for='user-tf') Username
+                    input#user-tf(type='text', name='user', value= user.user)
+            #pass-cg
+                label(for='pass-tf') Password
+                    input#pass-tf(type='password', name='pass', value='')
+            hr
+        .form-buttons
+            button(type='button', data-inline="true", data-role="button")#account-form-btn1 Cancel
+            button(type='submit', data-inline="true", data-role="button")#account-form-btn2 Submit
