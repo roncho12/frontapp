@@ -2,11 +2,6 @@ window.frontapp = window.frontapp || {};
 frontapp.tools = frontapp.tools || {};
 frontapp.tools.files = null;
 
-//////////////////////////////////////////////////////////////////////////
-// File uploads -
-// http://abandon.ie/notebook/simple-file-uploads-using-jquery-ajax
-//////////////////////////////////////////////////////////////////////////
-
 frontapp.tools.prepare_upload = function (event) {
     frontapp.tools.files = event.target.files;
     $('#uploadForm input[type=submit]').click();
@@ -14,8 +9,8 @@ frontapp.tools.prepare_upload = function (event) {
 
 frontapp.tools.upload_files = function (event) {
     var data, i, f, deferred, extra_data;
-    event.stopPropagation(); // Stop stuff happening
-    event.preventDefault(); // Totally stop stuff happening
+    event.stopPropagation();
+    event.preventDefault();
 
 
     if (frontapp.tools.files === null) {
@@ -142,7 +137,7 @@ frontapp.tools.add_original_and_front_images = function (file, target_container,
 
 // All images that we're uploaded/processed should be wrapped in a link
 // so the "Actions" menu could be displayed.
-frontapp.tools.wrap_images_for_menu = function (img) {
+frontapp.tools.wrap_images_for_menu = function () {
     var images, i, curr_image, wrap, parent;
 
     images = $('.uploaded_image, .uploaded_image_front');
@@ -252,9 +247,11 @@ frontapp.tools.is_mobile_browser = function () {
         return false;
     }
 };
+
 frontapp.tools.log_at_server = function (text) {
     $.post("/api/log_message", {message: text});
 };
+
 frontapp.tools.delete_image = function (path, callback) {
     var deferred, filename;
 
