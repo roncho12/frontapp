@@ -2,7 +2,7 @@
 
 <b>[FrontApp][frontapp]</b> is a [Node.js][nodejs] web app which uses a face frontalization algorithm to produce frontalized images of faces.
 
-You may also download the code and use it to perform [frontalization](#front_standalone) and [face cropping](#facecrop_standalone), independently  of the web application.
+You may also download the code and use it to perform [frontalization](#front_standalone) independently of the web application.
 
 The code has been tested on a machine running Ubuntu 14.04.
 
